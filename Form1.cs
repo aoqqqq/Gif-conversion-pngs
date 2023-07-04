@@ -8,7 +8,7 @@ using System.IO;
 using System.Security.AccessControl;
 using System.ComponentModel;
 using System.Diagnostics;
-
+//bilibili W傲奇W
 namespace Tr
 {
     public partial class Form1 : Form

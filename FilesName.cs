@@ -2,7 +2,7 @@
 namespace Tr
 {
     public class FilesName
-    {
+    {//bilibili W傲奇W
         public string name { get; }
         public string suffixName { get; }
         public  FilesName (string path) 

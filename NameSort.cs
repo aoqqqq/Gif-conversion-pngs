@@ -52,17 +52,24 @@ namespace Tr
 
             string ret = null;
             int first = 0;
-      
-            foreach (var item in tmp)
+    
+            for (var i=0;i< tmp.Length;i++)
             {
-                if (first == 0 &&Int32.Parse(item.ToString()) != 0)
+                //零开头的报错 2023年7月4日19:23:26
+                if (first == 0 && Int32.Parse(tmp[i].ToString()) != 0)
                 {
-                    ret += item;
+                    //第一个不为0的;
+                    ret += tmp[i];
                     ++first;
+                
                 }
-                else if(first == 1)
+                else if (first == 1)
                 {
-                    ret += item;
+                    ret += tmp[i];
+                }
+                else if(tmp.Length==1)
+                {
+                    ret += tmp[i];
                 }
             }
             return long.Parse(ret);

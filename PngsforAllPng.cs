@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//bilibili W傲奇W
 namespace Tr
 {
     public static class PngsforAllPng
