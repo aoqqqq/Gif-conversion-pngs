@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //bilibili W傲奇W
+//虽然没啥技术含量 但此次旅程对我十分受益
 namespace Tr
 {
     internal static class Program

@@ -49,6 +49,18 @@ namespace Tr
     
         }
 
+        public static string GetText(Control text,IntPtr ? Form1s) 
+        {
+            return text.Text;
+        }
+        public static string GetText(Control text)
+        {
+            string ret = null;
+            text.Invoke((MethodInvoker)delegate {
+            ret = text.Text;
+            });
+            return ret;
+        }
         //2023年6月29日16:14:56
  
         private void Sortevent()
@@ -416,13 +428,38 @@ namespace Tr
 
         private void allMAPP_Click(object sender, EventArgs e)
         {
-            map = new RectangleMap(this);    
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            map.RestartYesButton(MyProjectEvent.NULL,null);
-            //PngsforAllPng.are.Set();
-            map.are.Set();
-             
+
+            if (this.checkwarp.Checked && GetText(this.textwrap,null) != null)
+            {
+         
+                try
+                {
+                    if (int.Parse(GetText(this.textwrap, null)) >= 1)
+                    {
+                        map = new RectangleMap(this);
+                        map.isSort = paixv.Checked;
+                        map.rowElement = int.Parse(GetText(this.textwrap, null));
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        map.RestartYesButton(MyProjectEvent.NULL, null);
+                        map.are.Set();
+                    }
+                    else {
+                        throw new Exception("");
+                            }
+                   
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("输入数字啊!不能有其他并且大于等于1");
+
+                }
+           
+
+ 
+            }
+            else
+                PngsforAllPng.are.Set();
         }
 
         private void Gif_AllS_Click(object sender, EventArgs e)
@@ -458,6 +495,11 @@ namespace Tr
         private void checkwarp_CheckedChanged(object sender, EventArgs e)
         {
             textwrap.ReadOnly = !checkwarp.Checked;
+            this.textwrap.Text = null;
+            if (textwrap.ReadOnly)
+            {
+                this.textwrap.Text = "9999";
+            }
         }
 
 
@@ -465,5 +507,11 @@ namespace Tr
         {
             ProcessConsoleEvent();
         }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

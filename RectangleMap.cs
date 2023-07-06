@@ -12,6 +12,8 @@ namespace Tr
     {
         internal AutoResetEvent are = new AutoResetEvent(false);
         internal int index = 0;
+        internal bool isSort = false;
+        private bool isstr = false;
         internal long rowElement = 4; //每行几张?
         internal string chars = null;
         const int spacepixel = 2;//暂且固定2像素
@@ -118,27 +120,36 @@ namespace Tr
                 string suffix = filesName.suffixName; 
                 string name = filesName.name;
                 if (suffix == "png" || suffix == "jpg")
-                {
-
-                    string[] name_tmp = null;
+                {       
                     images.Add(new ImageName
                     {
                         image = Image.FromFile(ph),
-                        name = name
-                    });
+                        name = name,
+                        oldname = name,
+                    });//获取图片与名字
+
+                    if (this.isSort)
+                    {
+                                          string[] name_tmp = null;
+ 
                     ImageName writetmp = images[images.Count - 1];
                     if (v == 0)
                     {
                         ++v;
                         Form1.cwlog("第一个文件名:" + images[0].name);
-                        Form1.cwlog("请输入筛选字符");
+                        Form1.cwlog("请输入筛选字符,@N取消筛选直接字符串排序");
                         this.form1.buttoninputYes.Invoke((MethodInvoker)delegate
                         {
                             this.form1.buttoninputYes.Enabled = true;
                             Form1.mevent = MyProjectEvent.Sort;
                         });
                         this.are.WaitOne();
-
+                        if (form1.Getinputtext()== "@n" ||"@N"==form1.Getinputtext())
+                        {
+                            //不筛选直接结束 上面已经赋值
+                            isstr = true;
+                            continue;   
+                        }
                         chars += form1.Getinputtext();
                         while (true)
                         {
@@ -182,29 +193,41 @@ namespace Tr
                         }
                         form1.SetinputNULL();
                     }
-                    else
+                    else if(!isstr)
                     {
                         //有些名字没有相同特征 可能会产生错误 BUG 以后修
                         name_tmp = name.Split(GetChars(), StringSplitOptions.RemoveEmptyEntries);
                         writetmp.name = name_tmp[index - 1];
                         images[images.Count - 1] = writetmp;
                     }
+                    }
+  
                 }
             }
-
-            while (true)
+            if (isSort)
             {
-                Form1.cwlog("输入序号\n1:整形  2:字符串");
-                RestartYesButton(MyProjectEvent.SortMode);
-                are.WaitOne();
-                if (this.sortModes != MySortModes.NULL)
+                if (isstr)
                 {
-                    break;
+                    this.sortModes = MySortModes.String;
                 }
+                else
+                {
 
+                    while (true)
+                    {
+                        Form1.cwlog("输入序号\n1:整形  2:字符串");
+                        RestartYesButton(MyProjectEvent.SortMode);
+                        are.WaitOne();
+                        if (this.sortModes != MySortModes.NULL)
+                        {
+                            break;
+                        }
+                    }
+                }
+                images = selectmde(images);
             }
 
-            images = selectmde(images);
+
             //images = selectmde(images);
           Form1.cwlog("_______________");
 
@@ -218,14 +241,14 @@ namespace Tr
             int ImageNumber = images.Count;
             int Column=((int)(ImageNumber / this.rowElement))+1;
 
-            int 剩余 =(int) (ImageNumber % this.rowElement);
+            int Remaining_images =(int) (ImageNumber % this.rowElement);
 
-            int W = size.Width * (Column == 1 ? ImageNumber : (int)this.rowElement), 
-                H = size.Height * (Column ==1 ? Column:Column-1); //长宽度
+            int W = size.Width * (Column == 1 ? ImageNumber : (int)this.rowElement),
+                H = size.Height * (Column == 1 ? Column : Remaining_images != 0 ? Column:Column-1) ; //长宽度
             //行首与尾巴不需要空格像素
             int row_spacepixels = (Column == 1 ? (ImageNumber-1)*spacepixel : (int)this.rowElement -1)*spacepixel;
             //列最上与最下不需要空格像素 //如果只有1行 那么上下根本不用空格 
-            int column_spacepixels = (Column == 1 ? 0 : (Column - 2) * spacepixel);
+            int column_spacepixels = (Column == 1 ? 0 : Remaining_images!=0? (Column-1) *spacepixel : (Column - 2) * spacepixel);
             //
             Bitmap image = new Bitmap(W+row_spacepixels,H+column_spacepixels);
             Form1.cwlog(image.Size.ToString()); ;
@@ -235,35 +258,42 @@ namespace Tr
        
             int hlength = 0;
             int ii = 0;
-            for (int i = 0; i <Column-1 ; i++)
+            int forcol = Column ==1?Column:Column-1;
+            for (int i = 0; i <forcol ; i++)
             {
                 //2023年7月5日00:26:54 这玩意没归零导致图片消失
                  int wlength = 0;
+                              
                 for (int j = 0; j <securerow; j++)
                 {
                     g.DrawImage(images[ii].image,wlength,hlength);
+                    Form1.cwlog(images[ii].name);
                     wlength += size.Width+spacepixel;
+                    images[ii].image.Dispose();
                     ii++;
                 }
 
                 hlength += size.Height+spacepixel;
      
-                if (i+1 ==Column - 1 && 剩余>0)
+                if (i+1 == forcol && Remaining_images>0)
                 {
                     wlength = 0;
-                    for (int iii = 0; iii < 剩余; iii++)
-                    {
-                        
+                    for (int iii = 0; iii < Remaining_images; iii++)
+                    { 
                         g.DrawImage(images[ii].image, wlength, hlength);
+                        Form1.cwlog(images[ii].name);
                         wlength += size.Width + spacepixel;
+                        images[ii].image.Dispose();    
                         ii++;
                     }
                 }
             }
             Form1.cwlog(ii.ToString()+"索引");
-            image.Save($".\\date\\{images[0].name}.png",ImageFormat.Png);
+            DirectoryInfo dir = Directory.CreateDirectory(".\\date\\" + "ALLMaps");
+            image.Save(dir.FullName+@"\"+$"{images[0].oldname}.png",ImageFormat.Png);
             g.Dispose();
             image.Dispose();
+            images.Clear();
             GC.Collect();
             GC.WaitForPendingFinalizers();
             MessageBox.Show("draw完成");

@@ -59,6 +59,7 @@
             this.rich_log = new System.Windows.Forms.RichTextBox();
             this.textinput = new System.Windows.Forms.TextBox();
             this.buttoninputYes = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -177,6 +178,7 @@
             resources.ApplyResources(this.checkBox4, "checkBox4");
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // label4
             // 
@@ -249,11 +251,17 @@
             this.buttoninputYes.UseVisualStyleBackColor = true;
             this.buttoninputYes.Click += new System.EventHandler(this.buttoninputYes_Click);
             // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.buttoninputYes);
             this.Controls.Add(this.textinput);
             this.Controls.Add(this.rich_log);
@@ -326,6 +334,7 @@
         internal System.Windows.Forms.TextBox textPngsdir;
         private System.Windows.Forms.TextBox textinput;
         public System.Windows.Forms.Button buttoninputYes;
+        private System.Windows.Forms.Label label11;
     }
 }
 

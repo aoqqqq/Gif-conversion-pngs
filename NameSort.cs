@@ -8,6 +8,7 @@ namespace Tr
     public struct ImageName
     {
        public string name;
+        public string oldname;
         public Image image;
     };
     public static class  ImageNameSort
