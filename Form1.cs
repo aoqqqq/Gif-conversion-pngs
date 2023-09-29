@@ -14,57 +14,71 @@ namespace Tr
     public partial class Form1 : Form
     {
         //2023年6月29日16:14:45
-        public static MyProjectEvent mevent =MyProjectEvent.NULL;
+        public static MyProjectEvent mevent = MyProjectEvent.NULL;
         Size a_mapsize;
         Size all_Mapsize;
         bool dj = false;
         AutoResetEvent reset = new AutoResetEvent(false);
-        AutoResetEvent reset2 = new AutoResetEvent(false);  
+        AutoResetEvent reset2 = new AutoResetEvent(false);
 
         System.Threading.Thread thread_gif;
         System.Threading.Thread thread_gifs;
-        delegate void delmap(string gifs, byte value,bool isTransparen);
-        delegate void delmap2(string NULL ,string file,byte value ,bool isTransparen);
+        delegate void delmap(string gifs, byte value, bool isTransparen);
+        delegate void delmap2(string NULL, string file, byte value, bool isTransparen);
         private delmap GetDelmap;
         private delmap2 GetDelmap2;
         static RichTextBox log;
+        static CheckBox transparentCH;
+        static byte threshold = 0;
         RectangleMap map;
-        public static void cwlog(string text) 
+        public static bool istransparent(out byte value)
+        {
+            bool a = false;
+            value = threshold;
+            transparentCH.Invoke(new Action(() =>
+            {
+
+                a = transparentCH.Checked;
+            }));
+            return a;
+        }
+        public static void cwlog(string text)
         {
             log.Invoke(new Action(() =>
-            { 
-           log.AppendText("\n"+ text);
-            log.ScrollToCaret();
+            {
+                log.AppendText("\n" + text);
+                log.ScrollToCaret();
 
             }));
- 
+
         }
-        public static void cwlog(string text ,IntPtr ?Form1s)
+        public static void cwlog(string text, IntPtr? Form1s)
         {
             if (Form1s == null)
             {
-                        log.AppendText("\n" + text);
+                log.AppendText("\n" + text);
                 log.ScrollToCaret();
             }
-    
+
         }
 
-        public static string GetText(Control text,IntPtr ? Form1s) 
+        public static string GetText(Control text, IntPtr? Form1s)
         {
             return text.Text;
         }
         public static string GetText(Control text)
         {
             string ret = null;
-            text.Invoke((MethodInvoker)delegate {
-            ret = text.Text;
+            text.Invoke((MethodInvoker)delegate
+            {
+                ret = text.Text;
             });
             return ret;
         }
         //2023年6月29日16:14:56
- 
+
         private void Sortevent()
-        {       
+        {
             try
             {
                 cwlog(Getinputtext(null));
@@ -72,18 +86,18 @@ namespace Tr
                 mevent = MyProjectEvent.NULL;
                 buttoninputYes.Enabled = false;
                 //2023年6月30日15:51:53
-       
+
             }
             catch (Exception)
             {
-                buttoninputYes.Enabled=true;
+                buttoninputYes.Enabled = true;
                 MessageBox.Show("输入非法");
             }
         }
-        private void SortMode() 
+        private void SortMode()
         {
             try
-            {   
+            {
                 int tmp = int.Parse(Getinputtext());
                 cwlog(Getinputtext());
                 map.sortModes = tmp == 1 ? MySortModes.Int : tmp == 2 ? MySortModes.String : MySortModes.NULL;
@@ -94,19 +108,19 @@ namespace Tr
             }
             catch (Exception)
             {
-                cwlog("输入序号\n1:整形  2:字符串",null);
+                cwlog("输入序号\n1:整形  2:字符串", null);
                 SetinputNULL(null);
-                this.buttoninputYes.Enabled=true;
+                this.buttoninputYes.Enabled = true;
                 MessageBox.Show("非法输入");    // 2023年7月1日23:42:41 英语ge发橘的音
             }
         }
-        private void SorteventIndex() 
+        private void SorteventIndex()
         {
             try
             {
                 int tmp = int.Parse(Getinputtext(null));
                 map.index = tmp;
-                cwlog(Getinputtext(null));  
+                cwlog(Getinputtext(null));
                 map.are.Set();
                 mevent = MyProjectEvent.NULL;
                 buttoninputYes.Enabled = false;
@@ -118,7 +132,7 @@ namespace Tr
                 MessageBox.Show("请输入整形索引1~N");
             }
         }
-        private void ProcessConsoleEvent() 
+        private void ProcessConsoleEvent()
         {
             switch (mevent)
             {
@@ -128,54 +142,56 @@ namespace Tr
                     SorteventIndex();
                     break;
                 case MyProjectEvent.Sort:
-                        Sortevent();
+                    Sortevent();
                     break;
-                    case MyProjectEvent.SortMode:
-                    SortMode();               
-                    break  ;
+                case MyProjectEvent.SortMode:
+                    SortMode();
+                    break;
                 default:
                     break;
             }
-   
+
         }
 
-        public  string Getinputtext(IntPtr ?Form1s) 
+        public string Getinputtext(IntPtr? Form1s)
         {
             return textinput.Text;
         }
-        public  string Getinputtext()
+        public string Getinputtext()
         {
             string ret = "";
-            textinput.Invoke(new Action(() => {     
+            textinput.Invoke(new Action(() =>
+            {
 
                 ret = textinput.Text;
 
             }));
             return ret;
         }
-        public void SetinputNULL(IntPtr ?p)
+        public void SetinputNULL(IntPtr? p)
         {
-                textinput.Text = null;
+            textinput.Text = null;
         }
-        public void SetinputNULL() 
+        public void SetinputNULL()
         {
-         
-            textinput.Invoke(new Action(() => {
 
-              textinput.Text=null;
+            textinput.Invoke(new Action(() =>
+            {
+
+                textinput.Text = null;
 
             }));
         }
-        void intADmap() 
+        void intADmap()
         {
             try
             {
-                    pictureBox1.Image = Image.FromFile(@"./W");
-                    pictureBox2.Image = Image.FromFile(@"./Z");
+                pictureBox1.Image = Image.FromFile(@"./W");
+                pictureBox2.Image = Image.FromFile(@"./Z");
             }
             catch (Exception)
             {
-                
+
             }
 
         }
@@ -188,33 +204,33 @@ namespace Tr
             GetDelmap2 = topng;
             thread_gif = new System.Threading.Thread(giftopng);
             thread_gif.Start();
-            thread_gifs= new System.Threading.Thread(filestopng);
+            thread_gifs = new System.Threading.Thread(filestopng);
             thread_gifs.Start();
-            PngsforAllPng.Run( textPngsdir,label2, checkBox2,checkBox4);
+            PngsforAllPng.Run(textPngsdir, label2, checkBox2, checkBox4);
             //2023年6月28日14:38:11
             textwrap.ReadOnly = !checkwarp.Checked;
             log = rich_log;
-            cwlog("hole",null);
+            cwlog("hole", null);
             buttoninputYes.Enabled = false;
 
         }
-        void topng(string gifs ,byte value, bool isTransparen)
+        void topng(string gifs, byte value, bool isTransparen)
         {
             try
             {
-            char[] gotos = { '.', '\\' };
-            string[] names = Path.GetFileName(gifs).Split(gotos);
-            string name = names[names.Length - 2];
-      
+                char[] gotos = { '.', '\\' };
+                string[] names = Path.GetFileName(gifs).Split(gotos);
+                string name = names[names.Length - 2];
+
                 DirectoryInfo directory = Directory.CreateDirectory(".\\date\\" + name + "\\");
                 Bitmap bitmap = new Bitmap(gifs);
-            Image image = bitmap;
-            FrameDimension frame = new FrameDimension(image.FrameDimensionsList[0]);
-            int index = image.GetFrameCount(frame);
+                Image image = bitmap;
+                FrameDimension frame = new FrameDimension(image.FrameDimensionsList[0]);
+                int index = image.GetFrameCount(frame);
 
-            for (int i = 0; i < index; i++)
-            {
-                image.SelectActiveFrame(frame, i);
+                for (int i = 0; i < index; i++)
+                {
+                    image.SelectActiveFrame(frame, i);
 
 
                     if (isTransparen)
@@ -226,38 +242,38 @@ namespace Tr
                     else
                     {
                         image.Save(directory.FullName + "\\" + name + i + ".png", ImageFormat.Png);
-                        
+
                     }
-            }
-            image.Dispose();
+                }
+                image.Dispose();
             }
             catch (Exception)
             {
                 MessageBox.Show("路径错误");
-       
+
             }
 
 
         }
-        void topng(string NULL ,string all, byte value,bool isTransparen)
+        void topng(string NULL, string all, byte value, bool isTransparen)
         {
-            if (null == NULL )
+            if (null == NULL)
             {
                 try
                 {
                     string[] files = all_stream(all);
-                    char[] gotos = { '.' ,'\\'};
+                    char[] gotos = { '.', '\\' };
                     foreach (var item in files)
                     {
-                       
+
                         string[] filenames = item.Split(gotos);
                         if (filenames[filenames.Length - 1] == "gif")
                         {
 
 
                             string name = filenames[filenames.Length - 2];
-                            DirectoryInfo dir = Directory.CreateDirectory(".\\date\\"+$"{name}");
-                            
+                            DirectoryInfo dir = Directory.CreateDirectory(".\\date\\" + $"{name}");
+
                             Image image = Image.FromFile(item);
 
                             ////获取基础大小
@@ -266,7 +282,7 @@ namespace Tr
                             FrameDimension frame = new FrameDimension(image.FrameDimensionsList[0]);
                             int index = image.GetFrameCount(frame);
                             //设置图片大小
-                            all_Mapsize =new Size(a_mapsize.Width* index+(2*(index+1)) ,a_mapsize.Height+2*2);
+                            all_Mapsize = new Size(a_mapsize.Width * index + (2 * (index + 1)), a_mapsize.Height + 2 * 2);
                             //Bitmap allmap = new Bitmap(all_Mapsize.Width, all_Mapsize.Height);
                             ////初始化画板
                             //Graphics g = Graphics.FromImage(allmap);
@@ -279,17 +295,17 @@ namespace Tr
                                 //pointW += (1+a_mapsize.Width);
                                 if (isTransparen)
                                 {
-                                    Bitmap b = BlackToTransparent. Run(new Bitmap(image), value);
-                                    b. Save(dir.FullName + "\\" + name + i + ".png", ImageFormat.Png);
+                                    Bitmap b = BlackToTransparent.Run(new Bitmap(image), value);
+                                    b.Save(dir.FullName + "\\" + name + i + ".png", ImageFormat.Png);
                                     b.Dispose();
                                 }
                                 else
                                 {
                                     image.Save(dir.FullName + "\\" + name + i + ".png", ImageFormat.Png);
-          
+
                                 }
                             }
-                                 //allmap.Save(dir.FullName + "\\" +"All_"+name+".png",ImageFormat.Png);
+                            //allmap.Save(dir.FullName + "\\" +"All_"+name+".png",ImageFormat.Png);
                             image.Dispose();
                         }
 
@@ -305,9 +321,9 @@ namespace Tr
             }
 
         }
-        string[] all_stream(string directory) 
+        string[] all_stream(string directory)
         {
-           return Directory.GetFiles(directory);
+            return Directory.GetFiles(directory);
         }
 
         void giftopng()
@@ -318,15 +334,15 @@ namespace Tr
                 Console.WriteLine("开始");
                 string path = null;
                 byte value = 0;
-                bool isTransparen=false;
+                bool isTransparen = false;
 
-                this.Invoke((MethodInvoker)delegate 
+                this.Invoke((MethodInvoker)delegate
                 {
                     path = textBox1.Text;
                     value = byte.Parse(label2.Text);
                     isTransparen = checkBox3.Checked;
                 });
-              //  topng(path,value,isTransparen);
+                //  topng(path,value,isTransparen);
                 this.Invoke(GetDelmap, path, value, isTransparen);
                 MessageBox.Show("完成");
                 GC.Collect();
@@ -335,10 +351,10 @@ namespace Tr
             }
 
         }
-        void filestopng() 
+        void filestopng()
         {
             reset2.WaitOne();
-            while (true) 
+            while (true)
             {
                 Console.WriteLine("开始");
                 string path = null;
@@ -352,11 +368,11 @@ namespace Tr
                     isTransparen = checkBox1.Checked;
                 });
                 //topng(null,path,value,isTransparen);
-                Invoke(GetDelmap2,null, path, value,isTransparen);
+                Invoke(GetDelmap2, null, path, value, isTransparen);
                 MessageBox.Show("完成");
                 GC.Collect();
-                GC.WaitForPendingFinalizers();  
-                reset2.WaitOne() ;  
+                GC.WaitForPendingFinalizers();
+                reset2.WaitOne();
             }
         }
 
@@ -389,7 +405,7 @@ namespace Tr
         protected override void OnClosing(CancelEventArgs e)
         {
             System.Environment.Exit(0);
-            base.OnClosing(e);  
+            base.OnClosing(e);
         }
 
 
@@ -428,10 +444,11 @@ namespace Tr
 
         private void allMAPP_Click(object sender, EventArgs e)
         {
-
-            if (this.checkwarp.Checked && GetText(this.textwrap,null) != null)
+            transparentCH = checkBox2;
+            threshold = byte.Parse(label2.Text);
+            if (this.checkwarp.Checked && GetText(this.textwrap, null) != null)
             {
-         
+
                 try
                 {
                     if (int.Parse(GetText(this.textwrap, null)) >= 1)
@@ -444,22 +461,23 @@ namespace Tr
                         map.RestartYesButton(MyProjectEvent.NULL, null);
                         map.are.Set();
                     }
-                    else {
+                    else
+                    {
                         throw new Exception("");
-                            }
-                   
+                    }
+
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("输入数字啊!不能有其他并且大于等于1");
 
                 }
-           
 
- 
+
+
             }
             else
-                PngsforAllPng.are.Set();
+                PngsforAllPng.are.Set();//去黑头
         }
 
         private void Gif_AllS_Click(object sender, EventArgs e)
@@ -513,5 +531,14 @@ namespace Tr
 
         }
 
+        private void paixv_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

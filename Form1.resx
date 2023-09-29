@@ -833,7 +833,7 @@
     <value>35</value>
   </data>
   <data name="rich_log.Text" xml:space="preserve">
-    <value>Log...</value>
+    <value>纯日志已废除</value>
   </data>
   <data name="&gt;&gt;rich_log.Name" xml:space="preserve">
     <value>rich_log</value>
@@ -855,6 +855,9 @@
   </data>
   <data name="textinput.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
+  </data>
+  <data name="textinput.Text" xml:space="preserve">
+    <value>已废除</value>
   </data>
   <data name="&gt;&gt;textinput.Name" xml:space="preserve">
     <value>textinput</value>

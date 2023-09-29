@@ -145,6 +145,7 @@
             resources.ApplyResources(this.checkBox2, "checkBox2");
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -209,6 +210,7 @@
             resources.ApplyResources(this.paixv, "paixv");
             this.paixv.Name = "paixv";
             this.paixv.UseVisualStyleBackColor = true;
+            this.paixv.CheckedChanged += new System.EventHandler(this.paixv_CheckedChanged);
             // 
             // label9
             // 
@@ -314,7 +316,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
@@ -335,6 +336,7 @@
         private System.Windows.Forms.TextBox textinput;
         public System.Windows.Forms.Button buttoninputYes;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.CheckBox checkBox2;
     }
 }
 
