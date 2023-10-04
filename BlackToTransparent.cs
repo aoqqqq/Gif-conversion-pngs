@@ -9,6 +9,7 @@ namespace Tr
 {
     public static class BlackToTransparent
     {
+        static long iiii = 1;
         /// <summary>
         /// 如果rgb都小于阈值 T 否则F
         /// </summary>
@@ -42,9 +43,11 @@ namespace Tr
             }
             return color;
         }
-        static public Bitmap Run(Bitmap bitmap, byte value)
+        public static Bitmap Run(Bitmap bitmap, byte value)
         {
             Bitmap b = bitmap;
+            Form1.cwlog("总_开始第" + iiii.ToString() + "张处理");
+            iiii++;
             for (int y = 0; y < bitmap.Height; y++)
             {
                 for (int x = 0; x < bitmap.Width; x++)
@@ -52,6 +55,7 @@ namespace Tr
                     b.SetPixel(x, y, newcolor(bitmap.GetPixel(x, y), value));
                 }
             }
+            Form1.cwlog("总_结束第" + iiii.ToString() + "张处理");
             return b;
         }
     }

@@ -52,7 +52,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.paixv = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.textwrap = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkwarp = new System.Windows.Forms.CheckBox();
@@ -61,6 +60,9 @@
             this.buttoninputYes = new System.Windows.Forms.Button();
             this.textBoxJianju = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.button_Folder1 = new System.Windows.Forms.Button();
+            this.button_Folder2 = new System.Windows.Forms.Button();
+            this.button_file = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -98,6 +100,7 @@
             // 
             resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button_allPngs
             // 
@@ -163,6 +166,7 @@
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -213,11 +217,6 @@
             this.paixv.UseVisualStyleBackColor = true;
             this.paixv.CheckedChanged += new System.EventHandler(this.paixv_CheckedChanged);
             // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
             // textwrap
             // 
             resources.ApplyResources(this.textwrap, "textwrap");
@@ -265,11 +264,35 @@
             this.label11.Name = "label11";
             this.label11.Click += new System.EventHandler(this.label11_Click_1);
             // 
+            // button_Folder1
+            // 
+            resources.ApplyResources(this.button_Folder1, "button_Folder1");
+            this.button_Folder1.Name = "button_Folder1";
+            this.button_Folder1.UseVisualStyleBackColor = true;
+            this.button_Folder1.Click += new System.EventHandler(this.button_Folder1_Click);
+            // 
+            // button_Folder2
+            // 
+            resources.ApplyResources(this.button_Folder2, "button_Folder2");
+            this.button_Folder2.Name = "button_Folder2";
+            this.button_Folder2.UseVisualStyleBackColor = true;
+            this.button_Folder2.Click += new System.EventHandler(this.button_Folder2_Click);
+            // 
+            // button_file
+            // 
+            resources.ApplyResources(this.button_file, "button_file");
+            this.button_file.Name = "button_file";
+            this.button_file.UseVisualStyleBackColor = true;
+            this.button_file.Click += new System.EventHandler(this.button_file_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
+            this.Controls.Add(this.button_file);
+            this.Controls.Add(this.button_Folder2);
+            this.Controls.Add(this.button_Folder1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxJianju);
             this.Controls.Add(this.buttoninputYes);
@@ -277,7 +300,6 @@
             this.Controls.Add(this.rich_log);
             this.Controls.Add(this.checkwarp);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.textwrap);
             this.Controls.Add(this.paixv);
             this.Controls.Add(this.label5);
@@ -335,7 +357,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox paixv;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkwarp;
         private System.Windows.Forms.RichTextBox rich_log;
@@ -346,6 +367,9 @@
         public System.Windows.Forms.CheckBox checkBox2;
         internal System.Windows.Forms.TextBox textBoxJianju;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button_Folder1;
+        private System.Windows.Forms.Button button_Folder2;
+        private System.Windows.Forms.Button button_file;
     }
 }
 

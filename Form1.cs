@@ -17,7 +17,7 @@ namespace Tr
         public static MyProjectEvent mevent = MyProjectEvent.NULL;
         Size a_mapsize;
         Size all_Mapsize;
-        bool dj = false;
+        //bool dj = false;
         AutoResetEvent reset = new AutoResetEvent(false);
         AutoResetEvent reset2 = new AutoResetEvent(false);
 
@@ -233,7 +233,7 @@ namespace Tr
                 string[] names = Path.GetFileName(gifs).Split(gotos);
                 string name = names[names.Length - 2];
 
-                DirectoryInfo directory = Directory.CreateDirectory(".\\date\\" + name + "\\");
+                DirectoryInfo directory = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_OrdinaryImages}\\" + name + "\\");
                 Bitmap bitmap = new Bitmap(gifs);
                 Image image = bitmap;
                 FrameDimension frame = new FrameDimension(image.FrameDimensionsList[0]);
@@ -247,12 +247,16 @@ namespace Tr
                     if (isTransparen)
                     {
                         Bitmap b = BlackToTransparent.Run(new Bitmap(image), value);
-                        b.Save(directory.FullName + "\\" + name + i + ".png", ImageFormat.Png);
+
+                        directory = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_NoBlackImages}\\" + name + "\\");
+                        Form1.cwlog("文件夹路径: " + directory.FullName);
+                        b.Save(directory.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
                         b.Dispose();
                     }
                     else
                     {
-                        image.Save(directory.FullName + "\\" + name + i + ".png", ImageFormat.Png);
+                        Form1.cwlog("文件夹路径: " + directory.FullName);
+                        image.Save(directory.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
 
                     }
                 }
@@ -260,7 +264,7 @@ namespace Tr
             }
             catch (Exception)
             {
-                MessageBox.Show("路径错误");
+                MessageBox.Show("路径错误 这个是单个文件");
 
             }
 
@@ -283,7 +287,7 @@ namespace Tr
 
 
                             string name = filenames[filenames.Length - 2];
-                            DirectoryInfo dir = Directory.CreateDirectory(".\\date\\" + $"{name}");
+                            DirectoryInfo dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_OrdinaryImages}\\" + $"{name}");
 
                             Image image = Image.FromFile(item);
 
@@ -306,13 +310,16 @@ namespace Tr
                                 //pointW += (1+a_mapsize.Width);
                                 if (isTransparen)
                                 {
+                                    dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_NoBlackImages}\\" + name + "\\");
                                     Bitmap b = BlackToTransparent.Run(new Bitmap(image), value);
-                                    b.Save(dir.FullName + "\\" + name + i + ".png", ImageFormat.Png);
+                                    Form1.cwlog("文件夹路径: " + dir.FullName);
+                                    b.Save(dir.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
                                     b.Dispose();
                                 }
                                 else
                                 {
-                                    image.Save(dir.FullName + "\\" + name + i + ".png", ImageFormat.Png);
+                                    Form1.cwlog("文件夹路径: " + dir.FullName);
+                                    image.Save(dir.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
 
                                 }
                             }
@@ -422,12 +429,13 @@ namespace Tr
 
         private void Gb_Click(object sender, EventArgs e)
         {
-            dj = false;
+            //dj = false;
+            System.Diagnostics.Process.Start("https://space.bilibili.com/401669606?spm_id_from=333.999.0.0");
         }
 
         private void Qi_Click(object sender, EventArgs e)
         {
-
+            rich_log.Text = string.Empty;
             reset.Set();
 
         }
@@ -444,6 +452,7 @@ namespace Tr
 
         private void All_gif_Click(object sender, EventArgs e)
         {
+            rich_log.Text = string.Empty;
             reset2.Set();
         }
 
@@ -455,6 +464,7 @@ namespace Tr
 
         private void allMAPP_Click(object sender, EventArgs e)
         {
+            rich_log.Text = string.Empty;
             spacepixel = this.textBoxJianju;
             transparentCH = checkBox2;
             threshold = byte.Parse(label2.Text);
@@ -560,6 +570,52 @@ namespace Tr
 
         private void label11_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Folder1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "选择文件夹内有gif格式的文件夹";
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            // folderBrowserDialog.ShowNewFolderButton = false; 创建文件夹
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK) textBox2.Text = folderBrowserDialog.SelectedPath;
+        }
+
+        private void button_Folder2_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "选择文件夹内有gif/png/jpg格式的文件夹";
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.Desktop;
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK) textPngsdir.Text = folderBrowserDialog.SelectedPath;
+
+        }
+
+        private void button_file_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "动态图|*.gif";
+            openFileDialog.Title = "选择gif";
+            openFileDialog.Multiselect = false;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = openFileDialog.FileName;
+            }
 
         }
     }

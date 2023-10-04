@@ -82,6 +82,7 @@ namespace Tr
         {
             try
             {
+                string name = "";
                 Bitmap bitmap = null;
                 Size size = new Size(0, 0);
                 List<Image> images = new List<Image>();
@@ -96,26 +97,27 @@ namespace Tr
                             if (isTransparen)
                             {
                                 Bitmap map = BlackToTransparent.Run(new Bitmap(item), value);
-                                DirectoryInfo directory = Directory.CreateDirectory(".\\date\\APng\\" + file[file.Length - 3]);
+                                DirectoryInfo directory = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_NoBlackImages}\\TransferImages\\" + file[file.Length - 3]);
 
-                                map.Save(directory.FullName + @"\" + file[file.Length - 2] + ".png");
+                                Form1.cwlog("文件夹路径: " + directory.FullName);
+                                map.Save(directory.FullName + @"\" + file[file.Length - 2] + ".png", ImageFormat.Png);
                                 map.Dispose();
                             }
                             else
                             {
                                 Bitmap map = new Bitmap(item);
-                                DirectoryInfo directory = Directory.CreateDirectory(".\\date\\APng\\" + file[file.Length - 3]);
-
-                                map.Save(directory.FullName + @"\" + file[file.Length - 2] + ".png");
+                                DirectoryInfo directory = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_OrdinaryImages}\\TransferImages\\" + file[file.Length - 3]);
+                                Form1.cwlog("文件夹路径: " + directory.FullName);
+                                map.Save(directory.FullName + @"\" + file[file.Length - 2] + ".png", ImageFormat.Png);
                                 map.Dispose();
                             }
-
                         }
                         else
                         {
                             images.Add(Image.FromFile(item));
                             if (bitmap == null)
                             {
+                                name = file[file.Length - 2];
                                 bitmap = new Bitmap(images[images.Count - 1].Size.Width, images[images.Count - 1].Size.Height);
                                 size += images[images.Count - 1].Size;
                             }
@@ -128,6 +130,13 @@ namespace Tr
                         }
                         //长图
                     }
+                }
+
+                if (isPng)
+                {
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    return;
                 }
                 if (images.Count != 0 && !isPng)
                 {
@@ -149,14 +158,15 @@ namespace Tr
                         images[i].Dispose();
                     }
                     images.Clear();
-                    string name = DateTime.Now.ToLocalTime().ToString().ToLowerInvariant();
+                    //  string name = DateTime.Now.ToLocalTime().ToString().ToLowerInvariant();
 
-                    DirectoryInfo dir = Directory.CreateDirectory(".\\date\\" + "ALLMaps");
+                    DirectoryInfo dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_SpriteSheet}");
+
                     if (isTransparen)
                         bitmap = BlackToTransparent.Run(bitmap, value);
-
-
-                    bitmap.Save(dir.FullName + "\\" + $"AllMaps{GetTime(name)}.png", ImageFormat.Png);
+                    Form1.cwlog("大小: " + bitmap.Size.ToString());
+                    Form1.cwlog("文件夹路径: " + dir.FullName);
+                    bitmap.Save(dir.FullName + "\\" + $"{name}long.png", ImageFormat.Png);
                     bitmap.Dispose();
                     g.Dispose();
                     GC.Collect();

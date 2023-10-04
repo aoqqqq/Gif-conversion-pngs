@@ -326,7 +326,7 @@ namespace Tr
             int column_spacepixels = (Column == 1 ? 0 : Remaining_images != 0 ? (Column - 1) * spacepixel : (Column - 2) * spacepixel);
             //
             Bitmap image = new Bitmap(W + row_spacepixels, H + column_spacepixels);
-            Form1.cwlog(image.Size.ToString()); ;
+
             Graphics g = Graphics.FromImage(image);
             //如果只剩下一行的时候可能会遇见99999(循环99999次) 所以 ==1返回数组长度避免出界,如果不为1 使用用户指定的每行元素个数
             int securerow = Column == 1 ? images.Count : (int)this.rowElement;
@@ -376,9 +376,14 @@ namespace Tr
                 images[item].image.Dispose();
             }
 
-            Form1.cwlog(ii.ToString() + "索引");
+
+
             DirectoryInfo dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_SpriteSheet}");
-            image.Save(dir.FullName + @"\" + $"{images[0].name}.png", ImageFormat.Png);
+            string fpath = dir.FullName + @"\" + $"{images[0].name}.png";
+            Form1.cwlog("尺寸: " + image.Size.ToString());
+            Form1.cwlog("文件夹路径: " + dir.FullName);
+            image.Save(fpath, ImageFormat.Png);
+
             g.Dispose();
             gifheads.Clear();
             image.Dispose();

@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Gb.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>33</value>
   </data>
   <data name="Qi.Location" type="System.Drawing.Point, System.Drawing">
     <value>437, 369</value>
@@ -156,7 +156,7 @@
     <value>1</value>
   </data>
   <data name="Qi.Text" xml:space="preserve">
-    <value>单个gif</value>
+    <value>单个gif只支持gif</value>
   </data>
   <data name="&gt;&gt;Qi.Name" xml:space="preserve">
     <value>Qi</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Qi.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>32</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>437, 342</value>
@@ -189,7 +189,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>31</value>
   </data>
   <data name="All_gif.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 369</value>
@@ -201,7 +201,7 @@
     <value>4</value>
   </data>
   <data name="All_gif.Text" xml:space="preserve">
-    <value>文件夹内的gif</value>
+    <value>文件夹内的gif只支持gif</value>
   </data>
   <data name="&gt;&gt;All_gif.Name" xml:space="preserve">
     <value>All_gif</value>
@@ -213,7 +213,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;All_gif.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>30</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 342</value>
@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="button_allPngs.Location" type="System.Drawing.Point, System.Drawing">
     <value>179, 395</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button_allPngs.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>28</value>
   </data>
   <data name="textPngsdir.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 369</value>
@@ -282,7 +282,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textPngsdir.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>27</value>
   </data>
   <data name="trackBar1.Location" type="System.Drawing.Point, System.Drawing">
     <value>244, 247</value>
@@ -303,7 +303,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;trackBar1.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>26</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -318,7 +318,7 @@
     <value>12</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>总体透明阈值</value>
+    <value>总体去黑阈值</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -330,7 +330,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>25</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -357,7 +357,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -384,7 +384,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBox1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="checkBox2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -399,7 +399,7 @@
     <value>15</value>
   </data>
   <data name="checkBox2.Text" xml:space="preserve">
-    <value>是否透明</value>
+    <value>是否去黑</value>
   </data>
   <data name="&gt;&gt;checkBox2.Name" xml:space="preserve">
     <value>checkBox2</value>
@@ -411,7 +411,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBox2.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="checkBox3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -438,7 +438,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBox3.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -465,7 +465,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -474,16 +474,16 @@
     <value>199, 26</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 48</value>
+    <value>305, 48</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>1.生成的详细图片效果请查看 date
-目录下的图片
-平铺图在date\AllMaps
-在没有跳出 完成 之前 不要点击第二下</value>
+    <value>1.生成的详细图片效果请查看 ImagesData
+目录下的图片 精灵图在 ImagesData\SpriteSheetImages
+普通的图片在 ImagesData\OrdinaryImages
+去黑图片 ImagesData\NoBlackImages</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -495,7 +495,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -524,7 +524,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -556,7 +556,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -583,7 +583,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBox4.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -598,11 +598,11 @@
     <value>26</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
-    <value>1:勾选"透明"+"额外转存" = 图片去黑底
+    <value>1:勾选"去黑"+"额外转存" = 图片去黑底
 2:无勾选               = 超长精灵表(废弃了)
 3:勾选每行                    =自定义精灵表
 4:勾选每行+排序             =先排序再生成精灵表
-5:勾选每行+透明+排序      =排序去黑底精灵表
+5:勾选每行+去黑+排序      =排序去黑底精灵表
 6:可支持gif直接转精灵表 如果带黑底也
 可以直接去黑
 这个按钮所对应的是中间的按钮</value>
@@ -617,7 +617,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 52</value>
@@ -638,7 +638,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>440, 52</value>
@@ -659,7 +659,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -689,7 +689,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="paixv.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -716,35 +716,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;paixv.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 317</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 24</value>
-  </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>合并一张图强烈建议每
-张图片分辨率大小一样</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="textwrap.Location" type="System.Drawing.Point, System.Drawing">
     <value>354, 348</value>
@@ -768,7 +740,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textwrap.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -796,7 +768,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="checkwarp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -824,7 +796,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkwarp.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="rich_log.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt, style=Bold</value>
@@ -851,19 +823,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rich_log.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="textinput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 499</value>
+    <value>6, 499</value>
   </data>
   <data name="textinput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 21</value>
+    <value>175, 21</value>
   </data>
   <data name="textinput.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
   <data name="textinput.Text" xml:space="preserve">
-    <value>已废除</value>
+    <value>已废除但不想删掉因为会出BUG</value>
   </data>
   <data name="&gt;&gt;textinput.Name" xml:space="preserve">
     <value>textinput</value>
@@ -875,10 +847,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textinput.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="buttoninputYes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>56, 526</value>
+    <value>59, 526</value>
   </data>
   <data name="buttoninputYes.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -899,7 +871,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttoninputYes.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="textBoxJianju.Location" type="System.Drawing.Point, System.Drawing">
     <value>244, 348</value>
@@ -923,7 +895,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxJianju.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -953,6 +925,84 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="button_Folder1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 329</value>
+  </data>
+  <data name="button_Folder1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 23</value>
+  </data>
+  <data name="button_Folder1.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="button_Folder1.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="&gt;&gt;button_Folder1.Name" xml:space="preserve">
+    <value>button_Folder1</value>
+  </data>
+  <data name="&gt;&gt;button_Folder1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_Folder1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button_Folder1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="button_Folder2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_Folder2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>388, 369</value>
+  </data>
+  <data name="button_Folder2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 23</value>
+  </data>
+  <data name="button_Folder2.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="button_Folder2.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="&gt;&gt;button_Folder2.Name" xml:space="preserve">
+    <value>button_Folder2</value>
+  </data>
+  <data name="&gt;&gt;button_Folder2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_Folder2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button_Folder2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="button_file.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button_file.Location" type="System.Drawing.Point, System.Drawing">
+    <value>557, 328</value>
+  </data>
+  <data name="button_file.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 23</value>
+  </data>
+  <data name="button_file.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="button_file.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="&gt;&gt;button_file.Name" xml:space="preserve">
+    <value>button_file</value>
+  </data>
+  <data name="&gt;&gt;button_file.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button_file.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button_file.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
