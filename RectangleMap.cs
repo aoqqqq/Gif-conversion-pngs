@@ -16,7 +16,7 @@ namespace Tr
         private bool isstr = false;
         internal long rowElement = 4; //每行几张?
         internal string chars = null;
-        const int spacepixel = 2;//暂且固定2像素
+        int spacepixel = Form1.Getspacepixel();//暂且固定2像素
         internal MySortModes sortModes = MySortModes.NULL;
         internal void RestartYesButton(MyProjectEvent eve)
         {
@@ -106,8 +106,10 @@ namespace Tr
 
         }
 
-        internal void GetImages(string path, ref List<ImageName> images)
+        internal void GetImages(string path, ref List<ImageName> images, ref List<int> Gifheaddex)
         {
+            long pathdexPos = 0;
+
             chars = null;
             string[] paths = Directory.GetFiles(path);
             //List<ImageName> images = new List<ImageName>(126);
@@ -121,9 +123,15 @@ namespace Tr
                 string name = filesName.name;
                 if (suffix == "png" || suffix == "jpg")
                 {
+                    Image tmp = Image.FromFile(ph);
+                    byte value = 0;
+                    if (Form1.istransparent(out value))
+                    {
+                        tmp = BlackToTransparent.Run((Bitmap)tmp, value);
+                    }
                     images.Add(new ImageName
                     {
-                        image = Image.FromFile(ph),
+                        image = tmp,
                         name = name,
                         oldname = name,
                     });//获取图片与名字
@@ -205,6 +213,7 @@ namespace Tr
                 }
                 else if (suffix == "gif")
                 {
+                    Gifheaddex.Add((int)pathdexPos);//首地址
                     Image gif = new Bitmap(ph);
                     FrameDimension pngs = new FrameDimension(gif.FrameDimensionsList[0]);
                     int index = gif.GetFrameCount(pngs);
@@ -234,6 +243,7 @@ namespace Tr
 
                     }
                 }
+                pathdexPos++;
             }
 
             if (isSort)
@@ -278,9 +288,19 @@ namespace Tr
 
         void draw(string path)
         {
+            List<int> gifheads = new List<int>(10);
+            List<ImageName> images = new List<ImageName>(10);
+            try
+            {
+                GetImages(path, ref images, ref gifheads);
+            }
+            catch (Exception)
+            {
 
-            List<ImageName> images = new List<ImageName>();
-            GetImages(path, ref images);
+                MessageBox.Show("路径错误");
+                return;
+            }
+
 
             int MAXHeight = images[0].image.Size.Height, MAXWidth = images[0].image.Size.Width;
 
@@ -350,12 +370,17 @@ namespace Tr
                     }
                 }
             }
-            if (images[ii - 1].oldname == "gif")
-                g.Dispose();
+
+            foreach (var item in gifheads)
+            {
+                images[item].image.Dispose();
+            }
+
             Form1.cwlog(ii.ToString() + "索引");
-            DirectoryInfo dir = Directory.CreateDirectory(".\\date\\" + "ALLMaps");
-            image.Save(dir.FullName + @"\" + $"{images[0].oldname}.png", ImageFormat.Png);
+            DirectoryInfo dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_SpriteSheet}");
+            image.Save(dir.FullName + @"\" + $"{images[0].name}.png", ImageFormat.Png);
             g.Dispose();
+            gifheads.Clear();
             image.Dispose();
             images.Clear();
             GC.Collect();

@@ -13,7 +13,30 @@ namespace Tr
     };
     public static class ImageNameSort
     {
+        const char A = 'A';
+        public const string Folder_SpriteSheet = "SpriteSheetImages";
+        public const string Folder_NoBlackImages = "NoBlackImages";
+        public const string Folder_OrdinaryImages = "OrdinaryImages";
+        public const string Folder_ImagesData = "ImagesData";
+        public static string SetName(string name, int index)
+        {
+            int i = 0;
+            int id = index;
+            string r = "";
+            while (id != 0)
+            {
+                id /= 26;
+                i++;
+            }
+            i--;
+            for (id = 0; id < i; id++)
+            {
+                r += "Z";
+            }
+            r += (char)(A + (index % 26));//A~Z
 
+            return r + "_" + name;
+        }
         public static long SumASCII(string str)
         {
             long Length = 0;
@@ -41,7 +64,7 @@ namespace Tr
             return StrArrayToString(in strs);
         }
 
-        //如果出现了 名称不统一会报错↓
+        //如果出现了 名称不统一会报错↓ 修不好 不修了
         public static long StrToint(string str)
         {
             string rc = RemoveClutter(str);

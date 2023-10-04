@@ -87,18 +87,19 @@ namespace Tr
                 List<Image> images = new List<Image>();
                 foreach (string item in FilesPaths(path))
                 {
-                    string[] file = item.Split('\\','.');
-                    if (file[file.Length - 1] == "png"|| file[file.Length - 1] == "jpg")
+                    string[] file = item.Split('\\', '.');
+                    if (file[file.Length - 1] == "png" || file[file.Length - 1] == "jpg")
                     {
+                        //是否转存png
                         if (isPng)
                         {
                             if (isTransparen)
                             {
-                                                            Bitmap map =BlackToTransparent.Run(new Bitmap(item),value);
-                            DirectoryInfo directory =  Directory.CreateDirectory(".\\date\\APng\\" + file[file.Length - 3]);
+                                Bitmap map = BlackToTransparent.Run(new Bitmap(item), value);
+                                DirectoryInfo directory = Directory.CreateDirectory(".\\date\\APng\\" + file[file.Length - 3]);
 
-                            map.Save(directory.FullName + @"\" + file[file.Length-2]+".png");
-                            map.Dispose();
+                                map.Save(directory.FullName + @"\" + file[file.Length - 2] + ".png");
+                                map.Dispose();
                             }
                             else
                             {
@@ -125,12 +126,13 @@ namespace Tr
                                 bitmap = bitmap.Size.Height < images[images.Count - 1].Size.Height ? new Bitmap(bitmap.Size.Width, images[images.Count - 1].Size.Height) : bitmap;
                             }
                         }
+                        //长图
                     }
                 }
                 if (images.Count != 0 && !isPng)
                 {
 
-                   
+
                     //Console.WriteLine("size" + size.Width + ",," + images[0].Size.Height);
                     bitmap = new Bitmap(size.Width + (2 * (images.Count + 1)), bitmap.Size.Height + 2);
 
@@ -153,9 +155,9 @@ namespace Tr
                     if (isTransparen)
                         bitmap = BlackToTransparent.Run(bitmap, value);
 
-                    
+
                     bitmap.Save(dir.FullName + "\\" + $"AllMaps{GetTime(name)}.png", ImageFormat.Png);
-                    bitmap.Dispose();    
+                    bitmap.Dispose();
                     g.Dispose();
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
@@ -179,7 +181,7 @@ namespace Tr
                 Console.WriteLine("开始");
                 string temp = null;
                 byte value = 0;
-                bool isTransparen = false ,isPng = false;
+                bool isTransparen = false, isPng = false;
                 te.Invoke((MethodInvoker)delegate
                 {
                     temp = te.Text;
@@ -187,7 +189,7 @@ namespace Tr
                     isTransparen = istran.Checked;
                     isPng = ispng.Checked;
                 });
-                PngsToPng(temp, value, isTransparen,isPng);
+                PngsToPng(temp, value, isTransparen, isPng);
                 MessageBox.Show("完成");
                 are.WaitOne();
             }
@@ -204,7 +206,7 @@ namespace Tr
         }
 
 
-        public delegate void RUN(TextBox path, Label label, CheckBox isTransparens,CheckBox isPng);
+        public delegate void RUN(TextBox path, Label label, CheckBox isTransparens, CheckBox isPng);
         public static RUN GetRUN()
         {
             return new RUN(Run);

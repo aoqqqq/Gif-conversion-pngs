@@ -31,6 +31,17 @@ namespace Tr
         static CheckBox transparentCH;
         static byte threshold = 0;
         RectangleMap map;
+        static TextBox spacepixel;
+        public static int Getspacepixel()
+        {
+            int a = 2;
+            spacepixel.Invoke(new Action(() =>
+            {
+                a = int.Parse(spacepixel.Text);
+            }));
+
+            return a;
+        }
         public static bool istransparent(out byte value)
         {
             bool a = false;
@@ -444,6 +455,7 @@ namespace Tr
 
         private void allMAPP_Click(object sender, EventArgs e)
         {
+            spacepixel = this.textBoxJianju;
             transparentCH = checkBox2;
             threshold = byte.Parse(label2.Text);
             if (this.checkwarp.Checked && GetText(this.textwrap, null) != null)
@@ -451,7 +463,7 @@ namespace Tr
 
                 try
                 {
-                    if (int.Parse(GetText(this.textwrap, null)) >= 1)
+                    if (int.Parse(GetText(this.textwrap, null)) >= 1 && int.Parse(textBoxJianju.Text) >= 0)
                     {
                         map = new RectangleMap(this);
                         map.isSort = paixv.Checked;
@@ -469,7 +481,7 @@ namespace Tr
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("输入数字啊!不能有其他并且大于等于1");
+                    MessageBox.Show("输入数字啊!不能为空\n不能有其他非正整数的数\n每行数:大于等于1\n上下间距:大于等于0");
 
                 }
 
@@ -537,6 +549,16 @@ namespace Tr
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click_1(object sender, EventArgs e)
         {
 
         }
