@@ -1,4 +1,4 @@
-#gif-convert-pngs
+#gif-Convert-Png-NoBleak-SpriteSheet
 #蓝奏云:
-#https://wwya.lanzoub.com/ik1nZ0zaextc
-#密码:ai97
+https://wwya.lanzoub.com/iXlb81ar1gvc
+密码:aoqi
