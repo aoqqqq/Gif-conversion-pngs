@@ -285,7 +285,7 @@
     <value>27</value>
   </data>
   <data name="trackBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 247</value>
+    <value>242, 263</value>
   </data>
   <data name="trackBar1.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 45</value>
@@ -309,7 +309,7 @@
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>254, 236</value>
+    <value>252, 252</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 12</value>
@@ -336,7 +336,7 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>337, 236</value>
+    <value>335, 252</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>11, 12</value>
@@ -390,7 +390,7 @@
     <value>True</value>
   </data>
   <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>259, 217</value>
+    <value>257, 233</value>
   </data>
   <data name="checkBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
@@ -444,7 +444,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>331, 217</value>
+    <value>329, 233</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 12</value>
@@ -471,10 +471,10 @@
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 26</value>
+    <value>200, 10</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>305, 48</value>
+    <value>305, 60</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -483,7 +483,8 @@
     <value>1.生成的详细图片效果请查看 ImagesData
 目录下的图片 精灵图在 ImagesData\SpriteSheetImages
 普通的图片在 ImagesData\OrdinaryImages
-去黑图片 ImagesData\NoBlackImages</value>
+去黑图片 ImagesData\NoBlackImages
+转存图片在各个文件夹的\TransferImages</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -562,7 +563,7 @@
     <value>True</value>
   </data>
   <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 284</value>
+    <value>256, 300</value>
   </data>
   <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 16</value>
@@ -665,13 +666,13 @@
     <value>True</value>
   </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>隶书, 15.75pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 196</value>
+    <value>196, 196</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 21</value>
+    <value>195, 25</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -695,7 +696,7 @@
     <value>True</value>
   </data>
   <data name="paixv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>258, 298</value>
+    <value>256, 314</value>
   </data>
   <data name="paixv.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 16</value>
