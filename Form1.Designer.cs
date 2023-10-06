@@ -71,7 +71,7 @@
             // Gb
             // 
             resources.ApplyResources(this.Gb, "Gb");
-            this.Gb.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.Gb.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.Gb.Name = "Gb";
             this.Gb.UseVisualStyleBackColor = true;
             this.Gb.Click += new System.EventHandler(this.Gb_Click);
@@ -207,6 +207,7 @@
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
+            this.label5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.label5.Name = "label5";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
