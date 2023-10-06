@@ -232,9 +232,10 @@ namespace Tr
                         }
                         else
                         {
+                            Bitmap gf=new Bitmap( gif);
                             images.Add(new ImageName
                             {
-                                image = gif,
+                                image = gf,
                                 name = name,
                                 oldname = suffix,
                             });
@@ -328,6 +329,7 @@ namespace Tr
             Bitmap image = new Bitmap(W + row_spacepixels, H + column_spacepixels);
 
             Graphics g = Graphics.FromImage(image);
+            g.SmoothingMode =System.Drawing.Drawing2D.SmoothingMode.None;
             //如果只剩下一行的时候可能会遇见99999(循环99999次) 所以 ==1返回数组长度避免出界,如果不为1 使用用户指定的每行元素个数
             int securerow = Column == 1 ? images.Count : (int)this.rowElement;
 
@@ -341,7 +343,8 @@ namespace Tr
 
                 for (int j = 0; j < securerow; j++)
                 {
-                    g.DrawImage(images[ii].image, wlength, hlength, images[ii].image.Width, images[ii].image.Height);
+                   
+                 g.DrawImage(images[ii].image, wlength, hlength, images[ii].image.Width, images[ii].image.Height);
                     Form1.cwlog(images[ii].name);
 
                     wlength += size.Width + spacepixel;
@@ -358,7 +361,8 @@ namespace Tr
                     wlength = 0;
                     for (int iii = 0; iii < Remaining_images; iii++)
                     {
-                        g.DrawImage(images[ii].image, wlength, hlength, images[ii].image.Width, images[ii].image.Height);
+                      
+                         g.DrawImage(images[ii].image, wlength, hlength, images[ii].image.Width, images[ii].image.Height);
                         Form1.cwlog(images[ii].name);
                         //因为我原先就是直接算好图片的大小不是动态的 所以没有必要动态的改变图片间隔 否则失去意义
                         wlength += size.Width + spacepixel;
