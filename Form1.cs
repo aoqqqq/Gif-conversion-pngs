@@ -8,6 +8,7 @@ using System.IO;
 using System.Security.AccessControl;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
 //bilibili W傲奇W
 namespace Tr
 {
@@ -53,14 +54,14 @@ namespace Tr
             }));
             return a;
         }
-        public static void cwlog(string text)
+        public static  void cwlog(string text)
         {
-            log.Invoke(new Action(() =>
+             log.Invoke(new Action( () =>
             {
-                log.AppendText("\n" + text);
-                log.ScrollToCaret();
+                 log.AppendText("\n" + text);
+                 log.ScrollToCaret();
 
-            }));
+            }));  
 
         }
         public static void cwlog(string text, IntPtr? Form1s)
@@ -250,13 +251,13 @@ namespace Tr
 
                         directory = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_NoBlackImages}\\" + name + "\\");
                         Form1.cwlog("文件夹路径: " + directory.FullName);
-                        b.Save(directory.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
+                        b.Save(directory.FullName + $"\\{i}.png", ImageFormat.Png);
                         b.Dispose();
                     }
                     else
                     {
                         Form1.cwlog("文件夹路径: " + directory.FullName);
-                        image.Save(directory.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
+                        image.Save(directory.FullName + $"\\{i}.png", ImageFormat.Png);
 
                     }
                 }
@@ -313,13 +314,13 @@ namespace Tr
                                     dir = Directory.CreateDirectory($".\\{ImageNameSort.Folder_ImagesData}\\{ImageNameSort.Folder_NoBlackImages}\\" + name + "\\");
                                     Bitmap b = BlackToTransparent.Run(new Bitmap(image), value);
                                     Form1.cwlog("文件夹路径: " + dir.FullName);
-                                    b.Save(dir.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
+                                    b.Save(dir.FullName + $"\\{ i}.png", ImageFormat.Png);
                                     b.Dispose();
                                 }
                                 else
                                 {
                                     Form1.cwlog("文件夹路径: " + dir.FullName);
-                                    image.Save(dir.FullName + $"\\{ImageNameSort.SetName(name, i)}.png", ImageFormat.Png);
+                                    image.Save(dir.FullName + $"\\{i}.png", ImageFormat.Png);
 
                                 }
                             }
